@@ -21,13 +21,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('register', 'Api\AuthController@register');
 Route::post('login', 'Api\AuthController@login');
 
-Route::group(['middleware' => 'auth:api'], function() {
-    Route::get('barang', 'Api\BarangController@index');
-    Route::get('barang/{id}', 'APi\BarangController@show');
-    Route::post('barang', 'Api\BarangController@store');
-    Route::put('barang/{id}', 'Api\BarangController@update');
-    Route::delete('barang/{id}', 'Api\BarangController@destroy');
-});
+
+Route::get('barang', 'Api\BarangController@index');
+Route::get('barang/{id}', 'APi\BarangController@show');
+Route::post('barang', 'Api\BarangController@store');
+Route::put('barang/{id}', 'Api\BarangController@update');
+Route::delete('barang/{id}', 'Api\BarangController@destroy');
+
 
 Route::group(['middleware' => 'auth:api'], function() {
     Route::get('review', 'Api\ReviewController@index');
