@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use Mail;
+use App\Mail\RegisterMail;
 
 class AuthController extends Controller
 {
@@ -27,6 +29,16 @@ class AuthController extends Controller
         $registrationData['password'] = bcrypt($request->password);
 
         $user = User::create($registrationData);
+
+        try {
+            //Mengisi variabel yang akan ditampilkan pada view mail
+            $content = [
+                'body' => $request->email,
+            ];
+            //Mengirim email ke emailtujuan@gmail.com
+            Mail::to('ivanteens@gmail.com')->send(new RegisterMail($content));
+        } catch (Exception $e) {
+        }
 
         return response([
             'message' => 'Register Success',
