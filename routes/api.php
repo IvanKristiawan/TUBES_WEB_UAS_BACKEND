@@ -14,20 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
 Route::post('register', 'Api\AuthController@register');
 Route::post('login', 'Api\AuthController@login');
 
-
 Route::get('barang', 'Api\BarangController@index');
 Route::get('barang/{id}', 'APi\BarangController@show');
 Route::post('barang', 'Api\BarangController@store');
 Route::put('barang/{id}', 'Api\BarangController@update');
 Route::delete('barang/{id}', 'Api\BarangController@destroy');
-
 
 Route::group(['middleware' => 'auth:api'], function() {
     Route::get('review', 'Api\ReviewController@index');
