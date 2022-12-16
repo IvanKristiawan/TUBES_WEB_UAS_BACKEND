@@ -22,16 +22,16 @@ Route::post('register', 'Api\AuthController@register');
 Route::post('login', 'Api\AuthController@login');
 
 Route::get('barang', 'Api\BarangController@index');
-Route::get('barang/{id}', 'APi\BarangController@show');
+Route::get('barang/{id}', 'Api\BarangController@show');
 Route::post('barang', 'Api\BarangController@store');
 Route::put('barang/{id}', 'Api\BarangController@update');
 Route::delete('barang/{id}', 'Api\BarangController@destroy');
 
 Route::group(['middleware' => 'auth:api'], function() {
     Route::get('review', 'Api\ReviewController@index');
-    Route::get('review/{id}', 'APi\ReviewController@show');
-    Route::get('reviewByIdUser/{id}', 'APi\ReviewController@showAllByIdUser');
-    Route::get('reviewByIdBarang/{id}', 'APi\ReviewController@showAllByIdBarang');
+    Route::get('review/{id}', 'Api\ReviewController@show');
+    Route::get('reviewByIdUser/{id}', 'Api\ReviewController@showAllByIdUser');
+    Route::get('reviewByIdBarang/{id}', 'Api\ReviewController@showAllByIdBarang');
     Route::post('review', 'Api\ReviewController@store');
     Route::put('review/{id}', 'Api\ReviewController@update');
     Route::delete('review/{id}', 'Api\ReviewController@destroy');
@@ -39,9 +39,9 @@ Route::group(['middleware' => 'auth:api'], function() {
 
 Route::group(['middleware' => 'auth:api'], function() {
     Route::get('keranjang', 'Api\KeranjangController@index');
-    Route::get('keranjang/{id}', 'APi\KeranjangController@show');
-    Route::get('keranjangByIdUser/{id}', 'APi\KeranjangController@showAllByIdUser');
-    Route::get('keranjangByIdBarang/{id}', 'APi\KeranjangController@showAllByIdBarang');
+    Route::get('keranjang/{id}', 'Api\KeranjangController@show');
+    Route::get('keranjangByIdUser/{id}', 'Api\KeranjangController@showAllByIdUser');
+    Route::get('keranjangByIdBarang/{id}', 'Api\KeranjangController@showAllByIdBarang');
     Route::post('keranjang', 'Api\KeranjangController@store');
     Route::put('keranjang/{id}', 'Api\KeranjangController@update');
     Route::delete('keranjang/{id}', 'Api\KeranjangController@destroy');
