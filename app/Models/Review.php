@@ -13,6 +13,7 @@ class Review extends Model
     protected $fillable = [
         'idBarang',
         'idUser',
+        'namaUser',
         'rating'
     ];
 

@@ -56,6 +56,7 @@ class ReviewController extends Controller
         $validate = Validator::make($storeData, [
             'idBarang' => 'required|max:100',
             'idUser' => 'required|max:100',
+            'namaUser' => 'required|max:100',
             'rating' => 'required|numeric'
         ]);
 
