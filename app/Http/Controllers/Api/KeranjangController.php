@@ -53,6 +53,7 @@ class KeranjangController extends Controller
         $storeData = $request->all();
         $validate = Validator::make($storeData, [
             'idBarang' => 'required|max:100',
+            'namaBarang' => 'required|max:100',
             'idUser' => 'required|max:100',
             'gambarBarang' => 'required|max:100',
             'kuantitas' => 'required|numeric'
