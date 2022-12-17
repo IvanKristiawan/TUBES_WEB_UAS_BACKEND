@@ -56,7 +56,8 @@ class KeranjangController extends Controller
             'namaBarang' => 'required|max:100',
             'idUser' => 'required|max:100',
             'gambarBarang' => 'required|max:100',
-            'kuantitas' => 'required|numeric'
+            'kuantitas' => 'required|numeric',
+            'hargaBarang' => 'required|numeric'
         ]);
 
         if ($validate->fails())

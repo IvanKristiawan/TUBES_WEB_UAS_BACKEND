@@ -15,7 +15,8 @@ class Keranjang extends Model
         'namaBarang',
         'idUser',
         'gambarBarang',
-        'kuantitas'
+        'kuantitas',
+        'hargaBarang'
     ];
 
     public function getCreatedAtAttribute()
