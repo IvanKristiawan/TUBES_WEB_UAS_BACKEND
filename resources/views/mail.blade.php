@@ -9,5 +9,6 @@
 <body>
 <h2>Selamat</h2>
 <p>User dengan email {{ $content['body'] }} berhasil dibuat</p>
+<button>Verify Email Address</button>
 </body>
 </html>

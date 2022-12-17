@@ -71,4 +71,39 @@ class AuthController extends Controller
             'access_token' => $token
         ]);
     }
+
+    public function update(Request $request, $id)
+    {
+        $user = User::find($id);
+        if (is_null($user)) {
+            return response([
+                'message' => 'user Not Found',
+                'data' => null
+            ], 404);
+        }
+
+        $updateData = $request->all();
+        $validate = Validator::make($updateData, [
+            'name' => 'required|max:60',
+            'email' => 'required|email:rfc,dns'
+        ]);
+
+        if ($validate->fails())
+            return response(['message' => $validate->errors()], 400);
+
+        $user->name = $updateData['name'];
+        $user->email = $updateData['email'];
+
+        if ($user->save()) {
+            return response([
+                'message' => 'Update user Success',
+                'data' => $user
+            ], 200);
+        }
+
+        return response([
+            'message' => 'Update user Failed',
+            'data' => null
+        ], 400);
+    }
 }
